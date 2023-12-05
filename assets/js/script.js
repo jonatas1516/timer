@@ -17,20 +17,20 @@ const second = document.querySelector(".second");
 function start() {
   cron = setInterval(function () {
     s++;
-    second.innerHTML = s;
+    s <= 9 ? (second.innerHTML = "0" + s) : (second.innerHTML = s);
 
-    if (s == 2) {
+    if (s == 60) {
       s = zero;
-      second.innerHTML = s;
+      second.innerHTML = "0" + s;
       m++;
-      minute.innerHTML = m;
+      m <= 9 ? (minute.innerHTML = "0" + m) : (minute.innerHTML = m);
     }
 
-    if (m == 2) {
+    if (m == 60) {
       m = zero;
-      minute.innerHTML = m;
+      m <= 9 ? (minute.innerHTML = "0" + m) : (minute.innerHTML = m);
       h++;
-      hour.innerHTML = h;
+      h <= 9 ? (hour.innerHTML = "0" + h) : (hour.innerHTML = h);
     }
   }, 1000);
 }
@@ -39,19 +39,15 @@ function pause() {
   clearInterval(cron);
 }
 
-const btn = document.querySelector("#btn");
-
-btn.addEventListener("click", clear);
-
-function clear() {
+function clean() {
   //clearInterval(cron);
 
   h = zero;
-  hour.innerHTML = h;
+  hour.innerHTML = "00";
 
   m = zero;
-  minute.innerHTML = m;
+  minute.innerHTML = "00";
 
   s = zero;
-  second.innerHTML = s;
+  second.innerHTML = "00";
 }
