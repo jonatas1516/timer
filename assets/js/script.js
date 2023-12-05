@@ -1,35 +1,40 @@
 let cron;
 
-let zero = 0o0;
+let h = 0;
 
-let h = zero;
+let m = 0;
 
-let m = zero;
+let s = 0;
 
-let s = zero;
+let hour = document.querySelector(".hour");
 
-const hour = document.querySelector(".hour");
+let minute = document.querySelector(".minute");
 
-const minute = document.querySelector(".minute");
-
-const second = document.querySelector(".second");
+let second = document.querySelector(".second");
 
 function start() {
   cron = setInterval(function () {
     s++;
+
     s <= 9 ? (second.innerHTML = "0" + s) : (second.innerHTML = s);
 
     if (s == 60) {
-      s = zero;
+      s = 0;
+
       second.innerHTML = "0" + s;
+
       m++;
+
       m <= 9 ? (minute.innerHTML = "0" + m) : (minute.innerHTML = m);
     }
 
     if (m == 60) {
-      m = zero;
+      m = 0;
+
       m <= 9 ? (minute.innerHTML = "0" + m) : (minute.innerHTML = m);
+
       h++;
+
       h <= 9 ? (hour.innerHTML = "0" + h) : (hour.innerHTML = h);
     }
   }, 1000);
@@ -40,14 +45,15 @@ function pause() {
 }
 
 function clean() {
-  //clearInterval(cron);
+  h = 0;
 
-  h = zero;
   hour.innerHTML = "00";
 
-  m = zero;
+  m = 0;
+
   minute.innerHTML = "00";
 
-  s = zero;
+  s = 0;
+
   second.innerHTML = "00";
 }
