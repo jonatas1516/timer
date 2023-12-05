@@ -1,5 +1,13 @@
+@font-face {
+  font-family: DS-Digital;
+  src: url(../fonts/DS-DIGI.TTF);
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
 * {
   box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
   margin: 0;
   padding: 0;
   transition: 0.3s;
@@ -25,6 +33,7 @@
 
 .paragraph {
   display: inline-block;
+  font-family: DS-Digital;
 }
 
 .btn {
